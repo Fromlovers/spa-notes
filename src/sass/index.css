@@ -59,18 +59,36 @@ body {
   opacity: 0.7;
 }
 .ad_input {
+  width: 100%;
+  box-shadow: inset 2px 2px 5px #a3b1c6, inset -5px -5px 10px #fff;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+  padding: 5px 25px !important;
+}
+.ad_input:focus {
+  box-shadow: inset 1px 1px 2px #a3b1c6, inset -1px -1px 2px #fff;
+}
+.ad_button {
+  background: #e0e5ec;
+  width: 60px;
+  color: #61677c;
+  font-weight: bold;
+  box-shadow: -2px -2px 10px #fff, 2px 2px 10px #a3b1c6;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+.ad_button:hover {
+  box-shadow: -1px -1px 4px #fff, 1px 1px 4px #a3b1c6;
+}
+.ad_button:active {
+  box-shadow: inset 1px 1px 2px #a3b1c6, inset -1px -1px 2px #fff;
+}
+.ad_button,
+.ad_input {
+  background-color: #e0e5ec;
   text-shadow: 1px 1px 0 #fff;
   border: 0;
   outline: 0;
   border-radius: 10px;
-  margin-right: 8px;
-  box-shadow: inset 2px 2px 5px #a3b1c6, inset -5px -5px 10px #fff;
-  width: 100%;
-  box-sizing: border-box;
-  transition: all 0.2s ease-in-out;
-  appearance: none;
   padding: 5px;
-}
-.ad_input:focus {
-  box-shadow: inset 1px 1px 2px #a3b1c6, inset -1px -1px 2px #fff;
 }

@@ -8,16 +8,17 @@
 
         <div class="container">
             <div class="page_layout">
-                <div class="action_edit">
-                    <button class="ad_button" />
+                <div class="page_layout__item_back">
+                    <button class="ad_button" type="submit" @click="goBack">Back</button>
                 </div>
+
                 <div class="page_layout__item">
                     <div class="page_layout__item__name">
-                        <span>Name</span>
+                        <span>Note name</span>
                     </div>
 
                     <div class="page_layout__item__action">
-                        <input class="ad_input" />
+                        <input class="ad_input" placeholder="Note name"/>
                     </div>
                 </div>
             </div>
@@ -33,14 +34,27 @@
         beforeCreate() {
             console.log('edit now');
         },
+        methods: {
+            goBack() {
+                return this.$router.go(-1);
+            }
+        }
     };
 </script>
 
 <style lang="scss">
     .header {
         padding-bottom: 1rem;
+        margin: 0 15px;
+        height: 20px;
+        color: #61677c;
     }
     .page_layout {
+        &__item_back {
+            @extend .page_layout__item;
+            justify-content: flex-end !important;
+        }
+
         &__item {
             display: flex;
             padding: 15px;
@@ -54,7 +68,9 @@
                 padding-bottom: 1rem;
             }
             &__name {
-                flex: 0 1 120px;
+                flex: 0 1 100px;
+                color: #61677c;
+                font-weight: bold;
             }
             &__action {
                 flex: 1;
