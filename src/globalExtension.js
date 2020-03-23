@@ -1,8 +1,10 @@
 import AButton from './globalComponents/Button';
+import AInput from './globalComponents/Input';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 const components = {
     AButton,
+    AInput,
     FontAwesomeIcon
 };
 

@@ -1,14 +1,11 @@
 <template>
-    <button :class="['a_button', className]" :type="nativeType" @click="onclick">
-        <span v-if="label">{{ label }}</span>
-    </button>
+    <input :class="['a_input', className]" @change="onchange" :disabled="disabled" />
 </template>
 
 <script>
     export default {
-        name: 'AButton',
+        name: 'AInput',
         props: {
-            label: String,
             nativeType: {
                 type: String,
                 default: 'button',
@@ -17,10 +14,21 @@
                 type: String,
                 default: 'button',
             },
+            placeholder: {
+                type: String,
+                default: '',
+            },
+            disabled: {
+                type: Boolean,
+                default: false,
+            },
         },
         methods: {
-            onclick() {
-                this.$emit('onclick');
+            onchange(event) {
+                this.$emit('onchange', event);
+            },
+            blur(event) {
+                this.$emit('blur', event);
             },
         },
     };
@@ -30,27 +38,20 @@
     $color-bg: #e0e5ec;
     $color-shadow: #a3b1c6;
     $color-white: #ffffff;
-
-    .a_button {
+    
+    .a_input {
         background-color: $color-bg;
         text-shadow: 1px 1px 0 $color-white;
         border: 0;
         outline: 0;
         border-radius: 10px;
         padding: 5px;
-        background: #e0e5ec;
-        width: 60px;
-        color: #61677c;
-        font-weight: bold;
-        box-shadow: -2px -2px 10px $color-white, 2px 2px 10px $color-shadow;
+        width: 100%;
+        box-shadow: inset 2px 2px 5px $color-shadow, inset -2px -2px 5px $color-white;
+        box-sizing: border-box;
         transition: all 0.2s ease-in-out;
-        cursor: pointer;
-
-        &:hover {
-            box-shadow: -1px -1px 4px $color-white, 1px 1px 4px $color-shadow;
-        }
-
-        &:active {
+        padding: 5px 25px !important;
+        &:focus {
             box-shadow: inset 1px 1px 2px $color-shadow, inset -1px -1px 2px $color-white;
         }
     }

@@ -9,7 +9,7 @@
         <div class="container">
             <div class="page_layout">
                 <div class="page_layout__item_back">
-                    <button class="ad_button" type="submit" @click="goBack">Back</button>
+                    <a-button label="Back" @onclick="goBack" />
                 </div>
 
                 <div class="page_layout__item">
@@ -18,7 +18,7 @@
                     </div>
 
                     <div class="page_layout__item__action">
-                        <input class="ad_input" placeholder="Note name"/>
+                        <a-input placeholder="Note name" />
                     </div>
                 </div>
             </div>
@@ -31,13 +31,10 @@
         data() {
             return {};
         },
-        beforeCreate() {
-            console.log('edit now');
-        },
         methods: {
             goBack() {
                 return this.$router.go(-1);
-            }
+            },
         }
     };
 </script>
@@ -50,6 +47,10 @@
         color: #61677c;
     }
     .page_layout {
+        border-radius: 10px;
+        background: #e0e5ec;
+        box-shadow: 3px 3px 9px #ffffff, -3px -3px 9px #a3b1c6;
+
         &__item_back {
             @extend .page_layout__item;
             justify-content: flex-end !important;
@@ -68,18 +69,14 @@
                 padding-bottom: 1rem;
             }
             &__name {
-                flex: 0 1 100px;
+                flex: 1 1;
                 color: #61677c;
                 font-weight: bold;
             }
             &__action {
-                flex: 1;
+                flex: 3;
             }
         }
-
-        border-radius: 10px;
-        background: #e0e5ec;
-        box-shadow: 5px 5px 15px #ffffff, -5px -5px 15px #a3b1c6;
     }
     .item {
         padding: 5px;
