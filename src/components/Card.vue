@@ -1,8 +1,10 @@
 <template>
     <div class="cards">
-        <div class="add_card_item" ref="buttonCard" v-if="isAddButton" @click="create">
+        <div v-if="isAddButton" ref="buttonCard" class="add_card_item" @click="create">
             <font-awesome-icon icon="plus" class="add_card_item__icon" />
-            <h3 class="add_card_item__label">Add note</h3>
+            <h3 class="add_card_item__label">
+                Add note
+            </h3>
         </div>
         <div class="card_item" @click="open">
             <div class="card_item__control">
@@ -13,8 +15,8 @@
             </div>
 
             <div class="card_item__content">
-                <div class="card_item__content__item" v-for="(task, index) in tasks" :key="index">
-                    <input v-if="index <= 6" type="checkbox" disabled v-model="task.isComplete" />
+                <div v-for="(task, index) in tasks" :key="index" class="card_item__content__item">
+                    <input v-if="index <= 6" v-model="task.isComplete" type="checkbox" disabled />
                     <span v-if="index <= 6" class="card_item__content__item__text">{{ task.content }}</span>
                 </div>
             </div>
@@ -67,6 +69,7 @@
         @extend .card_item;
         justify-content: center;
         align-items: center;
+
         &__icon {
             color: #7d8a9a;
             height: 50%;
@@ -74,6 +77,9 @@
         }
         &__label {
             color: #7d8a9a;
+        }
+        &:active {
+            box-shadow: inset 5px 5px 2px #a3b1c6, inset -5px -5px 2px #ffffff;
         }
     }
     .card_item {

@@ -1,5 +1,5 @@
 <template>
-    <input :class="['a_input', className]" @change="onchange" :disabled="disabled" />
+    <input :class="['a_input', className]" :disabled="disabled" @change="onchange" />
 </template>
 
 <script>
