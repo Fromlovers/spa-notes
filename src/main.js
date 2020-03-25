@@ -15,7 +15,7 @@ library.add(
     faPlus
 );
 
-installGlobalComponents(Vue);
+installGlobalComponents.call(Vue);
 
 Vue.use(Vuex);
 Vue.config.productionTip = false;
