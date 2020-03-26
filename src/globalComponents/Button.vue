@@ -1,5 +1,5 @@
 <template>
-    <button :class="['a_button', className]" :type="nativeType" @click="onclick">
+    <button :class="['a_button', className]" :type="nativeType" @click="$emit('click')">
         <span v-if="label">{{ label }}</span>
     </button>
 </template>
@@ -16,11 +16,6 @@
             className: {
                 type: String,
                 default: 'button',
-            },
-        },
-        methods: {
-            onclick() {
-                this.$emit('onclick');
             },
         },
     };
