@@ -38,7 +38,7 @@
     $color-bg: #e0e5ec;
     $color-shadow: #a3b1c6;
     $color-white: #ffffff;
-    
+
     .a_input {
         background-color: $color-bg;
         text-shadow: 1px 1px 0 $color-white;

@@ -51,7 +51,7 @@ export default {
             const notes = [];
             store.openCursor().onsuccess = e => {
                 const cursor = e.target.result;
-                
+
                 if (cursor) {
                     notes.push(cursor.value);
                     cursor.continue();

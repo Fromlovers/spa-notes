@@ -8,7 +8,7 @@ export default {
     actions: {
         addNote({ commit }, note) {
             console.log(note, 'store');
-            
+
             return api.saveNote(note);
         },
         async getNotes({ commit }) {

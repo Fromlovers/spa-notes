@@ -8,8 +8,8 @@
             :description="note.description"
             :tasks="tasks"
             @openCard="openCard(index)"
-            @deleteCard="deleteCard(index)"
             @createCard="createCard"
+            @deleteCard="deleteCard(index)"
         />
     </div>
 </template>

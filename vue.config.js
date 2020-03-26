@@ -11,27 +11,23 @@ module.exports = {
     },
     runtimeCompiler: true,
     configureWebpack: {
-        plugins: [
-            new MiniCssExtractPlugin(),
-        ],
+        plugins: [new MiniCssExtractPlugin()],
         module: {
             rules: [
-              {
-                test: /\.css$/,
-                use: [
-                  {
-                    loader: MiniCssExtractPlugin.loader,
-                    options: {
-                      // only enable hot in development
-                      hmr: devMode,
-                      // if hmr does not work, this is a forceful method.
-                      reloadAll: true,
-                    },
-                  },
-                  'css-loader',
-                ],
-              },
+                {
+                    test: /\.css$/,
+                    use: [
+                        {
+                            loader: MiniCssExtractPlugin.loader,
+                            options: {
+                                hmr: devMode,
+                                reloadAll: true,
+                            },
+                        },
+                        'css-loader',
+                    ],
+                },
             ],
-          },
+        },
     },
 };

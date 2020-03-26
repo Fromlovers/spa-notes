@@ -1,3 +1,3 @@
 import notes from './entities/notes';
 
-export default {...notes};
+export default { ...notes };
