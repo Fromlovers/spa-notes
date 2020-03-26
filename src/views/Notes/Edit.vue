@@ -9,7 +9,7 @@
         <div class="container">
             <div class="page_layout">
                 <div class="page_layout__item_back">
-                    <a-button label="Back" @onclick="goBack" />
+                    <a-button label="Back" @click="goBack" />
                 </div>
 
                 <div class="page_layout__item">
@@ -18,7 +18,7 @@
                     </div>
 
                     <div class="page_layout__item__action">
-                        <a-input placeholder="Note name" />
+                        <a-input v-model="note.name" placeholder="Note name" />
                     </div>
                 </div>
             </div>
@@ -28,8 +28,21 @@
 
 <script>
     export default {
+        props: {
+            propNote: { type: Object, default: val => (val ? val : {}) },
+        },
         data() {
-            return {};
+            let note = {
+                name: '',
+                tasks: [],
+            };
+
+            if (Object.keys(this.propNote).length) {
+                note = this.propNote;
+            }
+            return {
+                note,
+            };
         },
         methods: {
             goBack() {
