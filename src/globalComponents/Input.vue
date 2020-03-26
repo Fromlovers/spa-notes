@@ -1,5 +1,5 @@
 <template>
-    <input :class="['a_input', className]" :disabled="disabled" @change="onchange" />
+    <input :value="value" :class="['a_input', className]" :disabled="disabled" v-on="inputListeners" />
 </template>
 
 <script>
@@ -22,13 +22,16 @@
                 type: Boolean,
                 default: false,
             },
+            value: [Number, String],
         },
-        methods: {
-            onchange(event) {
-                this.$emit('onchange', event);
-            },
-            blur(event) {
-                this.$emit('blur', event);
+        computed: {
+            inputListeners: function() {
+                return {
+                    ...this.$listeners,
+                    input: event => {
+                        this.$emit('input', event.target.value);
+                    },
+                };
             },
         },
     };
