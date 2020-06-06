@@ -1,5 +1,11 @@
 <template>
-    <input :value="value" :class="['a_input', className]" :disabled="disabled" v-on="inputListeners" />
+    <input
+        :value="value"
+        :class="['a_input', className]"
+        :disabled="disabled"
+        :placeholder="placeholder"
+        v-on="inputListeners"
+    />
 </template>
 
 <script>

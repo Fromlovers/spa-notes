@@ -34,7 +34,7 @@
         border-radius: 10px;
         padding: 5px;
         background: #e0e5ec;
-        width: 60px;
+        min-width: 60px;
         color: #61677c;
         font-weight: bold;
         box-shadow: -2px -2px 10px $color-white, 2px 2px 10px $color-shadow;

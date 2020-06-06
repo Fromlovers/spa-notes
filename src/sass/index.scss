@@ -1,71 +1,82 @@
-$color-bg: #e0e5ec;
-$color-shadow: #a3b1c6;
-$color-white: #ffffff;
+$color-bg: #ffffff;
+$main-color-night: #54494B;
+$main-color-light: #ffffff;
 
-@media (max-width: 318.98px) {
-    section {
-        padding: 0 calc(50% - 270px);
-        .content-list {
-            justify-content: center;
-        }
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+html {
+    font-family: 'Roboto', sans-serif;
+    background-color: $color-bg;
+}
+
+@media (min-width: 1551px) {
+    .container {
+        margin: 25px calc(50% - 700px) 0;
     }
 }
 
-@media (min-width: 776.98px) {
-    section {
-        padding: 0 calc(50% - 270px);
-        .content-list {
-            justify-content: flex-start;
-        }
+@media (min-width: 1300px) and (max-width: 1550px) {
+    .container {
+        margin: 25px calc(50% - 600px) 0;
     }
 }
 
-@media (min-width: 579.98px) {
-    section {
-        padding: 0 calc(50% - 380px);
-        .content-list {
-            justify-content: flex-start;
-        }
+@media (min-width: 1100px) and (max-width: 1299px) {
+    .container {
+        margin: 25px calc(50% - 500px) 0;
     }
 }
 
-@media (min-width: 991.98px) {
-    section {
-        padding: 0 calc(50% - 480px);
-        .content-list {
-            justify-content: flex-start;
-        }
+@media (min-width: 900px) and (max-width: 1099px) {
+    .container {
+        margin: 25px calc(50% - 400px) 0;
     }
 }
 
-@media (min-width: 1199.98px) {
-    section {
-        padding: 0 calc(50% - 590px);
-        .content-list {
-            justify-content: flex-start;
-        }
+@media (max-width: 799px) {
+    .container {
+        margin: 25px calc(50% - 200px) 0;
     }
 }
 
-.cart_item {
-    position: relative;
-    padding: 10px;
-    width: 250px;
-    height: 500px;
-    border-radius: 50px;
-    background: #55b9f3;
-    box-shadow: 20px 20px 60px #489dcf, -20px -20px 60px #62d5ff;
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
 }
-
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
 body {
-    background-color: rgb(229, 238, 246);
-    font-family: sans-serif;
+	line-height: 1;
 }
-
-.icon-awesome {
-    opacity: 0.3;
-    cursor: pointer;
-    &:hover {
-        opacity: 0.7;
-    }
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }

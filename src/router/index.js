@@ -8,28 +8,13 @@ const routes = [
         path: '/',
         name: 'main_page',
         beforeEnter: (to, from, next) => {
-            next({ name: 'tasks_page' });
+            next();
         },
-        component: () => import('../views/Main'),
-    },
-    {
-        path: '/tasks',
-        name: 'tasks_page',
-        component: () => import('../views/Notes/Notes'),
-    },
-    {
-        path: '/tasks/create',
-        name: 'create_task',
-        component: () => import('../views/Notes/Edit'),
-    },
-    {
-        path: '/tasks/edit/:id',
-        name: 'edit_task',
-        component: () => import('../views/Notes/Edit'),
+        component: () => import(/* webpackChunkName: "Main" */ '../views/Main'),
     },
     {
         path: '*',
-        component: () => import('../views/PageNotFound.vue'),
+        component: () => import(/* webpackChunkName: "PageNotFound" */ '../views/PageNotFound.vue'),
     },
 ];
 

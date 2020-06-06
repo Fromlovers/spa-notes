@@ -1,23 +1,25 @@
 <template>
-    <div class="cards">
+    <div>
         <div v-if="isAddButton" ref="buttonCard" class="add_card_item" @click="create">
             <font-awesome-icon icon="plus" class="add_card_item__icon" />
             <h3 class="add_card_item__label">
                 Add note
             </h3>
         </div>
-        <div class="card_item" @click="open">
-            <div class="card_item__control">
-                <span class="card_item__control__label"> {{ label }}</span>
-                <span class="card_item__control__delete" @click="remove">
-                    <font-awesome-icon icon="trash-alt" class="icon-awesome" />
-                </span>
-            </div>
+        <div v-else class="cards">
+            <div class="card_item" @click="open">
+                <div class="card_item__control">
+                    <span class="card_item__control__label"> {{ label }}</span>
+                    <span class="card_item__control__delete" @click="remove">
+                        <font-awesome-icon icon="trash-alt" class="icon-awesome" />
+                    </span>
+                </div>
 
-            <div class="card_item__content">
-                <div v-for="(task, index) in tasks" :key="index" class="card_item__content__item">
-                    <input v-if="index <= 6" v-model="task.isComplete" type="checkbox" disabled />
-                    <span v-if="index <= 6" class="card_item__content__item__text">{{ task.content }}</span>
+                <div class="card_item__content">
+                    <div v-for="(task, index) in tasks" :key="index" class="card_item__content__item">
+                        <input v-if="index <= 6" v-model="task.isComplete" type="checkbox" disabled />
+                        <span v-if="index <= 6" class="card_item__content__item__text">{{ task.content }}</span>
+                    </div>
                 </div>
             </div>
         </div>

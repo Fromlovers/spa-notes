@@ -1,28 +1,20 @@
 <template>
     <section>
-        <div class="container">
-            <List :notes="notes" @delete="deleteNote" />
-        </div>
+        <div class="container"></div>
     </section>
 </template>
 
 <script>
     import { mapActions } from 'vuex';
-    import List from './components/List';
+    // import List from './components/List';
 
     export default {
-        components: {
-            List,
-        },
+        components: {},
         data() {
             return {};
         },
         methods: {
             ...mapActions(['getNotes', 'deleteNote']),
-            // async add() {
-            //     await this.addNote({ name: 'notik', tasks: ['wowo'] });
-            //     this.getNotes();
-            // },
         },
         computed: {
             notes() {
