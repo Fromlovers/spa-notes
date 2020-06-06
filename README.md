@@ -10,13 +10,6 @@ npm install
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
+### Related styles to Figma
+[Styles](https://www.figma.com/file/PEfCcXtbQgOG0iFJlRqz8D/spa-notes?node-id=4%3A28)
 
