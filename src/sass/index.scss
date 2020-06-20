@@ -9,6 +9,10 @@ html {
     background-color: $color-bg;
 }
 
+body {
+    overflow: hidden;
+}
+
 @media (min-width: 1551px) {
     .container {
         margin: 25px calc(50% - 700px) 0;
