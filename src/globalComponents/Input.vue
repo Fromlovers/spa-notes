@@ -50,18 +50,12 @@
 
     .a_input {
         background-color: $color-bg;
-        text-shadow: 1px 1px 0 $color-white;
         border: 0;
         outline: 0;
-        border-radius: 10px;
         padding: 5px;
         width: 100%;
-        box-shadow: inset 2px 2px 5px $color-shadow, inset -2px -2px 5px $color-white;
         box-sizing: border-box;
-        transition: all 0.2s ease-in-out;
-        padding: 5px 25px !important;
-        &:focus {
-            box-shadow: inset 1px 1px 2px $color-shadow, inset -1px -1px 2px $color-white;
-        }
+        padding: 5px 25px;
+        letter-spacing: 1.5px;
     }
 </style>
