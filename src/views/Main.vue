@@ -27,5 +27,6 @@
     .container {
         display: flex;
         justify-content: flex-start;
+        align-items: flex-start;
     }
 </style>

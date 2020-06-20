@@ -1,10 +1,10 @@
 <template>
     <div class="toogle-buttons">
         <div class="toogle-buttons__left">
-            <button>Active</button>
+            <a-button label="Active" class="toogle-buttons__button" />
         </div>
         <div class="toogle-buttons__right">
-            <button>Inactive</button>
+            <a-button label="Inactive" class="toogle-buttons__button" />
         </div>
     </div>
 </template>
@@ -26,9 +26,18 @@
             display: flex;
             flex-direction: column;
             flex: 1;
-            button {
-                width: 100%;
-                height: 100%;
+        }
+        &__button {
+            border-radius: 0px !important;
+            border-bottom: 1px solid #b98389 !important;
+            background-color: #54494b !important;
+            height: 3rem !important;
+            font-weight: 600;
+            font-size: 17px;
+        }
+        &__left {
+            .toogle-buttons__button {
+                border-right: 1px solid #b98389 !important;
             }
         }
     }
