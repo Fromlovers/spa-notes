@@ -1,16 +1,41 @@
 <template>
-    <div class="toogle-buttons">
-        <div class="toogle-buttons__left">
+    <div class="toogle-buttons" @click="changeStatus">
+        <div ref="left" class="toogle-buttons__left active">
             <a-button label="Active" class="toogle-buttons__button" />
         </div>
-        <div class="toogle-buttons__right">
+        <div ref="right" class="toogle-buttons__right">
             <a-button label="Inactive" class="toogle-buttons__button" />
         </div>
     </div>
 </template>
 
 <script>
-    export default {};
+    import { findParentElement } from '../../helpers/common';
+
+    export default {
+        data() {
+            return {
+                isActive: true,
+            };
+        },
+        methods: {
+            changeStatus(el) {
+                let preElement = this.$refs.right;
+                let element = findParentElement(el.target, 'toogle-buttons__left');
+                if (!element) {
+                    preElement = this.$refs.left;
+                    element = findParentElement(el.target, 'toogle-buttons__right');
+                }
+
+                if (element.classList.contains('active')) {
+                    return;
+                }
+
+                element.classList.toggle('active');
+                preElement.classList.toggle('active');
+            },
+        },
+    };
 </script>
 
 <style lang="scss" scoped>
@@ -26,6 +51,12 @@
             display: flex;
             flex-direction: column;
             flex: 1;
+        }
+        &__left.active,
+        &__right.active {
+            button {
+                box-shadow: inset 0 0 33px 10px #519872;
+            }
         }
         &__button {
             border-radius: 0px !important;
