@@ -35,10 +35,8 @@
     .note {
         display: flex;
         flex-direction: column;
-        background: rgb(122, 75, 81);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        margin: 6px;
-
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
         .title-wrap {
             display: flex;
             justify-content: flex-start;
