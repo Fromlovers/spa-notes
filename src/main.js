@@ -8,6 +8,8 @@ import installGlobalComponents from './globalExtension';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTrashAlt, faTimes, faPencilAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
 
+window.localStorage.versionDatabase = Object.values(storeData.modules).length;
+
 library.add(faTrashAlt, faTimes, faPencilAlt, faPlus);
 
 installGlobalComponents.call(Vue);
