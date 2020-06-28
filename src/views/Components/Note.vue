@@ -1,14 +1,16 @@
 <template>
-    <div class="note">
-        <div class="title-wrap">
-            <label class="title">{{ testNote.name }}</label>
-        </div>
-        <div class="information">
-            <div class="date-wrap">
-                <span class="date">{{ testNote.date }}</span>
+    <div class="wrap-note">
+        <div class="note" @click="onSelectNote">
+            <div class="title-wrap">
+                <label class="title">{{ note.name }}</label>
             </div>
-            <div class="description-wrap">
-                <span class="description">{{ testNote.text }}</span>
+            <div class="information">
+                <div class="date-wrap">
+                    <span class="date">{{ note.date }}</span>
+                </div>
+                <div class="description-wrap">
+                    <span class="description">{{ note.text }}</span>
+                </div>
             </div>
         </div>
     </div>
@@ -20,19 +22,22 @@
             note: Object,
         },
         data() {
-            return {
-                testNote: {
-                    name: 'test note',
-                    text: 'The text-overflow CSS property sets how hidden overflow content is signaled to users.',
-                    date: '22.07.2020',
-                },
-            };
+            return {};
+        },
+        methods: {
+            onSelectNote() {
+                this.$emit('click', this.note);
+            },
         },
     };
 </script>
 
 <style lang="scss" scoped>
+    .wrap-note {
+        margin-bottom: 1rem;
+    }
     .note {
+        cursor: pointer;
         display: flex;
         flex-direction: column;
         border-top: 1px solid rgba(255, 255, 255, 0.3);

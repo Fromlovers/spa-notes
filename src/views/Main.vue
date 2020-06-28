@@ -1,8 +1,8 @@
 <template>
     <div class="main-container">
         <div class="container">
-            <side-bar />
-            <content-bar />
+            <side-bar @setCurrentNote="setCurrentNote" />
+            <content-bar :note="currentNote" />
         </div>
     </div>
 </template>
@@ -14,7 +14,14 @@
     export default {
         components: { SideBar, ContentBar },
         data() {
-            return {};
+            return {
+                currentNote: {},
+            };
+        },
+        methods: {
+            setCurrentNote(note) {
+                this.currentNote = note;
+            },
         },
     };
 </script>
