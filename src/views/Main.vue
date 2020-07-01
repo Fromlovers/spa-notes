@@ -35,5 +35,7 @@
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
+        height: 100%;
+        box-sizing: border-box;
     }
 </style>

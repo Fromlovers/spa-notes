@@ -9,7 +9,7 @@
         </div>
 
         <div class="sidebar-items">
-            <note v-for="(note, index) in notes" :key="index" :note="note" @click="setCurrentNote" />
+            <note v-for="(note, index) in notes" :key="index" :note="note" @click="getNote(note)" />
         </div>
         <div class="sidebar-footer">
             <a-button label="Add" class="sidebar-footer-button" />
@@ -31,10 +31,9 @@
         },
         methods: {
             ...mapActions(['getNotes', 'deleteNote']),
-            setCurrentNote(note) {
-                console.log(note);
-
+            getNote(note) {
                 this.currentTask = note;
+                this.$emit('setCurrentNote', note);
             },
         },
         computed: {
@@ -42,14 +41,14 @@
                 //this.$store.state.notes
                 const testNotes = [
                     {
-                        name: 'test note',
+                        name: 'test note 1',
                         text: 'The text-overflow CSS property sets how hidden overflow content is signaled to users.',
-                        date: '22.07.2020',
+                        date: '22.07.2022',
                     },
                     {
-                        name: 'test note',
+                        name: 'test note 2',
                         text: 'The text-overflow CSS property sets how hidden overflow content is signaled to users.',
-                        date: '22.07.2020',
+                        date: '22.07.2023',
                     },
                 ];
                 return testNotes;
@@ -66,13 +65,13 @@
         display: flex;
         flex-direction: column;
         min-width: 300px;
-        max-width: 350px; //need correct
+        max-width: 350px;
         margin-right: 20px;
-        background: #54494b;
-        border: 2px solid rgba(185, 131, 137, 0.6);
-        border-radius: 17px;
-        min-height: 550px;
-
+        background-color: #ffffff;
+        border: 1px solid #4a76a8;
+        border-radius: 18px;
+        height: 100%;
+        box-sizing: border-box;
         &-header {
             display: flex;
             padding-bottom: 20px;
@@ -80,21 +79,21 @@
         &-search {
             padding-bottom: 20px;
             &-input {
-                background-color: rgb(103, 93, 91) !important;
-                color: #ffffff !important;
                 height: 2.5rem !important;
+                border-top: 1px solid #e6eaed !important;
+                border-bottom: 1px solid #e6eaed !important;
             }
         }
         &-items {
             flex: 1;
         }
         &-footer {
-            margin: 10px;
+            padding: 10px;
             &-button {
                 width: 100%;
                 padding: 8px 0 !important;
-                background-color: #519872 !important;
-                border: 0.7px solid rgba(185, 131, 137, 0.6) !important;
+                background-color: #5a91d0 !important;
+                border-radius: 12px !important;
             }
         }
     }

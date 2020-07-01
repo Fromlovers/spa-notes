@@ -27,11 +27,12 @@
         outline: 0;
         border-radius: 5px;
         padding: 5px;
-        background: #e0e5ec;
         min-width: 10px;
-        color: #54494b;
         font-weight: bold;
         cursor: pointer;
         color: #ffffff;
+        &:hover {
+            opacity: 0.9;
+        }
     }
 </style>

@@ -33,22 +33,22 @@
 </script>
 
 <style lang="scss" scoped>
-    .wrap-note {
-        margin-bottom: 1rem;
-    }
     .note {
         cursor: pointer;
         display: flex;
         flex-direction: column;
-        border-top: 1px solid rgba(255, 255, 255, 0.3);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        border-top: 1px solid #e6eaed;
+        padding: 10px 0;
+        &:hover {
+            background-color: #edeef0;
+        }
         .title-wrap {
             display: flex;
             justify-content: flex-start;
             padding: 8px;
             .title {
-                font-weight: 600;
-                color: #ffffff;
+                font-weight: 500;
+                color: #000000;
                 font-size: 17px;
             }
         }
@@ -62,7 +62,7 @@
                 margin-right: 10px;
                 justify-content: flex-end;
                 .date {
-                    color: #ffffff;
+                    color: #000000;
                     opacity: 0.8;
                 }
             }
@@ -74,7 +74,7 @@
                 text-overflow: ellipsis;
                 justify-content: flex-end;
                 .description {
-                    color: #ffffff;
+                    color: #000000;
                     opacity: 0.8;
                     text-overflow: ellipsis;
                     white-space: nowrap;

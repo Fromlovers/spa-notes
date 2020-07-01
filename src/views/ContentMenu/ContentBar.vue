@@ -1,6 +1,13 @@
 <template>
     <div class="content-container">
-        <div class="empty-window">
+        <div v-if="haveNote" class="wrap-show">
+            <div class="wrap-show__task"></div>
+            <div class="wrap-show__actions">
+                <a-button label="Edit" class="wrap-show__edit" />
+                <a-button label="Delete" class="wrap-show__delete" />
+            </div>
+        </div>
+        <div v-else class="empty-window">
             <h2>Hello it's the Notes manager</h2>
             <h3>You can watch for your time</h3>
         </div>
@@ -9,8 +16,16 @@
 
 <script>
     export default {
+        props: {
+            note: {},
+        },
         data() {
             return {};
+        },
+        computed: {
+            haveNote() {
+                return Object.keys(this.note).length;
+            },
         },
     };
 </script>
@@ -20,17 +35,33 @@
         display: flex;
         flex-direction: column;
         flex: 3;
-        border: 2px solid rgba(185, 131, 137, 0.6);
-        border-radius: 17px;
-        min-height: 550px;
+        border: 1px solid #4a76a8;
+        border-radius: 18px;
         justify-content: center;
-        background: 20% 30% / 100% no-repeat url('../../assets/logo_transparent.png') #54494b;
+        height: 100%;
+        background-color: #ffffff;
+        box-sizing: border-box;
+
         .empty-window {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: #ffffff;
+            color: #000000;
+        }
+
+        .wrap-show {
+            width: 100%;
+            height: 100%;
+            &__actions {
+                display: flex;
+                justify-content: flex-end;
+                padding: 25px;
+
+                &__edit {
+                    padding: 15px !important;
+                }
+            }
         }
     }
 

@@ -44,12 +44,8 @@
 </script>
 
 <style lang="scss" scoped>
-    $color-bg: #e0e5ec;
-    $color-shadow: #a3b1c6;
-    $color-white: #ffffff;
-
     .a_input {
-        background-color: $color-bg;
+        background-color: #ffffff;
         border: 0;
         outline: 0;
         padding: 5px;
@@ -57,5 +53,16 @@
         box-sizing: border-box;
         padding: 5px 25px;
         letter-spacing: 1.5px;
+        &:focus {
+            &::placeholder {
+                font-weight: 300;
+                opacity: 0.6;
+            }
+        }
+        &::placeholder {
+            font-weight: 500;
+            opacity: 0.8;
+            color: #000000;
+        }
     }
 </style>

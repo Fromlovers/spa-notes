@@ -55,20 +55,23 @@
         &__left.active,
         &__right.active {
             button {
-                box-shadow: inset 0 0 33px 10px #519872;
+                box-shadow: inset 0 0 0 25px #5a91d0;
             }
         }
         &__button {
             border-radius: 0px !important;
-            border-bottom: 1px solid #b98389 !important;
-            background-color: #54494b !important;
+            border-bottom: 1px solid #5181b8 !important;
+            background-color: #4a76a8 !important;
             height: 3rem !important;
             font-weight: 600;
             font-size: 17px;
+            &:hover {
+                opacity: 0.9;
+            }
         }
         &__left {
             .toogle-buttons__button {
-                border-right: 1px solid #b98389 !important;
+                border-right: 1px solid #5181b8 !important;
             }
         }
     }
