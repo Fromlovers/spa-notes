@@ -1,5 +1,11 @@
 <template>
-    <input :value="value" :class="['a_input', className]" :disabled="disabled" v-on="inputListeners" />
+    <input
+        :value="value"
+        :class="['a_input', className]"
+        :disabled="disabled"
+        :placeholder="placeholder"
+        v-on="inputListeners"
+    />
 </template>
 
 <script>
@@ -38,24 +44,25 @@
 </script>
 
 <style lang="scss" scoped>
-    $color-bg: #e0e5ec;
-    $color-shadow: #a3b1c6;
-    $color-white: #ffffff;
-
     .a_input {
-        background-color: $color-bg;
-        text-shadow: 1px 1px 0 $color-white;
+        background-color: #ffffff;
         border: 0;
         outline: 0;
-        border-radius: 10px;
         padding: 5px;
         width: 100%;
-        box-shadow: inset 2px 2px 5px $color-shadow, inset -2px -2px 5px $color-white;
         box-sizing: border-box;
-        transition: all 0.2s ease-in-out;
-        padding: 5px 25px !important;
+        padding: 5px 25px;
+        letter-spacing: 1.5px;
         &:focus {
-            box-shadow: inset 1px 1px 2px $color-shadow, inset -1px -1px 2px $color-white;
+            &::placeholder {
+                font-weight: 300;
+                opacity: 0.6;
+            }
+        }
+        &::placeholder {
+            font-weight: 500;
+            opacity: 0.8;
+            color: #000000;
         }
     }
 </style>

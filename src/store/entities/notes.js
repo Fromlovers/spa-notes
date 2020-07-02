@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import api from '../../db/notes';
+import model from '../../db/notes';
 
 export default {
     state: {
@@ -9,14 +9,14 @@ export default {
         addNote({ commit }, note) {
             console.log(note, 'store');
 
-            return api.saveNote(note);
+            return model.saveNote(note);
         },
         async getNotes({ commit }) {
-            const notes = await api.getNotes();
+            const notes = await model.getNotes();
             commit('setNote', notes);
         },
         deleteNote({ commit }, { note }) {
-            return api.deleteBook(note);
+            return model.deleteNote(note);
         },
     },
     mutations: {
