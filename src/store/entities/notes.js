@@ -3,20 +3,27 @@ import model from '../../db/notes';
 
 export default {
     state: {
-        notes: [],
+        notes: {},
     },
     actions: {
-        addNote({ commit }, note) {
-            console.log(note, 'store');
-
-            return model.saveNote(note);
-        },
-        async getNotes({ commit }) {
+        async addNote({ commit }, note) {
+            model.saveNote(note);
             const notes = await model.getNotes();
             commit('setNote', notes);
         },
-        deleteNote({ commit }, { note }) {
-            return model.deleteNote(note);
+        async setStateNotes({ commit }) {
+            const notes = await model.getNotes();
+            commit('setNote', notes);
+        },
+        async deleteNote({ commit }, id) {
+            await model.deleteNote(id);
+            const notes = await model.getNotes();
+            commit('setNote', notes);
+        },
+        async updateNote({ commit }, note) {
+            await model.updateNote(note);
+            const notes = await model.getNotes();
+            commit('setNote', notes);
         },
     },
     mutations: {
@@ -24,5 +31,9 @@ export default {
             state.notes = notes;
         },
     },
-    getters: {},
+    getters: {
+        getNoteById(state, id) {
+            return id => state.notes.find(note => note.id === id);
+        },
+    },
 };
