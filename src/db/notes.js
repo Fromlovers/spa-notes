@@ -2,7 +2,7 @@ import getDb from './config/db';
 
 const storageName = { STORAGE_NAME: 'notes' };
 export default {
-    async deleteNote(note) {
+    async deleteNote(noteId) {
         const db = await getDb(storageName);
         return new Promise(resolve => {
             const trans = db.transaction([db.config.STORAGE_NAME], 'readwrite');
@@ -10,7 +10,7 @@ export default {
                 resolve();
             };
             const store = trans.objectStore(db.config.STORAGE_NAME);
-            store.delete(note.id);
+            store.delete(noteId);
         });
     },
     async getNotes() {
@@ -39,9 +39,25 @@ export default {
 
             trans.oncomplete = () => resolve();
 
-            let store = trans.objectStore(db.config.STORAGE_NAME);
+            const store = trans.objectStore(db.config.STORAGE_NAME);
 
             store.put(note);
+        });
+    },
+    async updateNote(note) {
+        let db = await getDb(storageName);
+        return new Promise(resolve => {
+            let trans = db.transaction([db.config.STORAGE_NAME], 'readwrite');
+            const store = trans.objectStore(db.config.STORAGE_NAME);
+            store.openCursor(note.id).onsuccess = function(event) {
+                const cursor = event.target.result;
+                if (cursor) {
+                    const updateData = cursor.value;
+                    updateData.text = note.text;
+                    const request = cursor.update(updateData);
+                    request.onsuccess = () => resolve();
+                }
+            };
         });
     },
 };
