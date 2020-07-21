@@ -4,7 +4,7 @@
         :class="['a_input', className]"
         :disabled="disabled"
         :placeholder="placeholder"
-        v-on="inputListeners"
+        @input="input"
     />
 </template>
 
@@ -12,10 +12,6 @@
     export default {
         name: 'AInput',
         props: {
-            nativeType: {
-                type: String,
-                default: 'button',
-            },
             className: {
                 type: String,
                 default: 'button',
@@ -30,14 +26,9 @@
             },
             value: [Number, String],
         },
-        computed: {
-            inputListeners: function() {
-                return {
-                    ...this.$listeners,
-                    input: event => {
-                        this.$emit('input', event.target.value);
-                    },
-                };
+        methods: {
+            input(event) {
+                this.$emit('input', event.target.value);
             },
         },
     };
