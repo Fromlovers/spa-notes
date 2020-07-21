@@ -9,7 +9,7 @@
                     <span class="date">{{ note.date }}</span>
                 </div>
                 <div class="description-wrap">
-                    <span class="description">{{ note.text }}</span>
+                    <span class="description">{{ note.text | decription }}</span>
                 </div>
             </div>
         </div>
@@ -21,12 +21,17 @@
         props: {
             note: Object,
         },
-        data() {
-            return {};
-        },
         methods: {
             onSelectNote() {
                 this.$emit('click', this.note);
+            },
+        },
+        filters: {
+            decription(text) {
+                if (!text) return '';
+                let newText = text.replace(/<[^>]*>?/g, '');
+                newText = newText.replace(/&nbsp;/g, ' ');
+                return newText;
             },
         },
     };
@@ -64,6 +69,7 @@
                 .date {
                     color: #000000;
                     opacity: 0.8;
+                    white-space: nowrap;
                 }
             }
             .description-wrap {
