@@ -1,8 +1,8 @@
 <template>
     <div class="main-container">
         <div class="container">
-            <side-bar @setCurrentNote="setCurrentNote" />
-            <content-bar :note="currentNote" />
+            <side-bar @setCurrentNoteId="setCurrentNoteId" />
+            <content-bar :noteId="currentNoteId" @clearCurrentNoteId="clearCurrentNoteId" />
         </div>
     </div>
 </template>
@@ -10,17 +10,22 @@
 <script>
     import SideBar from './SidebarMenu/SideBar';
     import ContentBar from './ContentMenu/ContentBar';
+    import { mapActions } from 'vuex';
 
     export default {
         components: { SideBar, ContentBar },
         data() {
             return {
-                currentNote: {},
+                currentNoteId: null,
             };
         },
         methods: {
-            setCurrentNote(note) {
-                this.currentNote = note;
+            ...mapActions(['getNotes']),
+            setCurrentNoteId(id) {
+                this.currentNoteId = id;
+            },
+            clearCurrentNoteId() {
+                this.currentNoteId = null;
             },
         },
     };
